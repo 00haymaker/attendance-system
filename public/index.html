@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vercel Test</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 id="title">로딩 중...</h1>
+    </div>
+
+    <script>
+        // 백엔드 API 호출해서 데이터 가져오기
+        fetch('/api/hello')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('title').innerText = data.message;
+            })
+            .catch(err => {
+                document.getElementById('title').innerText = "에러 발생!";
+                console.error(err);
+            });
+    </script>
+</body>
+</html>
